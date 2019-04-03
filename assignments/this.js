@@ -17,14 +17,71 @@
 
 // code example for Window Binding
 
+
+function shout(command) {
+        console.log(this);
+        console.log('Above is what "this" refers to in the Principle 1 example')
+    return command;
+  }
+
+
+
+console.log(shout("Run!"));
+console.log('Above is what I return from my example of Principle 1')
+
 // Principle 2
 
 // code example for Implicit Binding
+
+const myDad = {
+    greeting: "Hey there, son!",
+    name: "Russel",
+    hometown: "Pittsburgh",
+    oldInjury: "broken ankle",
+    dangerousHobby: "throw iceballs at cars",
+    tellStory: function(friend) {
+      console.log(`${this.greeting} How are ya? Did I tell you about when I was a little boy back in ${this.hometown} and I got a ${this.oldInjury}? One day my friend ${friend} was bored and said, "${this.name}, let's ${this.dangerousHobby}!" It did not end well.`);
+      console.log('Above is what I return from my example of Principle 2')
+      console.log(this);
+      console.log('Above is what "this" refers to in the Principle 2 example')
+    }
+  };
+  
+  myDad.tellStory("Billiam");
 
 // Principle 3
 
 // code example for New Binding
 
+function Dictator(leader) {
+    this.identification = 'I am a really powerful and evil dictator and my name is ';
+    this.leader = leader;
+    this.speak = function() {
+      console.log(this.identification + this.leader);
+      console.log(this);
+    };
+  }
+  
+  const stalin = new Dictator('Stalin');
+  const polpot = new Dictator('Pol Pot');
+  
+  polpot.speak();
+  stalin.speak();
+
+  console.log('Above, you can see I have invoked the speak method twice, so you see the results of what it returns both times. You can also what "this" refers to. This is all for the Principle 3 example')
+
 // Principle 4
+
+
+// Whenever JavaScript’s call or apply method is used, this is explicitly defined.
+// Taking the above object oriented approach we can discover that we can override what the CordialPerson constructor objects get set to. By calling them explicitly with a new context using .call and .apply
+
+polpot.speak.apply(stalin);
+stalin.speak.call(polpot); 
+
+
+
+console.log('Above, you can see I have invoked the speak method twice with new arguments, so you see the results of what it returns both times. You can also what "this" refers to, which is different from in Principle 3 example. This is all for the Principle 4 example')
+
 
 // code example for Explicit Binding
