@@ -1,6 +1,7 @@
 # JavaScript - III
 
 [test edit 1]
+[test edit 2]
 
 This challenge focuses on using the `this` keyword as well as getting comfortable with prototypes by building out a fantasy themed video game.
 
