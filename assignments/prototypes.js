@@ -7,7 +7,46 @@
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
-  
+
+function GameObject(object) {
+  this.name = object.name;
+  dimensions = ( x , y );
+  createdAt = origin;
+};
+
+GameObject.prototype.destroy = function() {
+  return `${this.name} was removed from the game.`;
+};
+
+function CharacterStats(object) {
+  this.name = object.name;
+  this.healthpoints = object.healthpoints;
+ };
+
+CharacterStats.prototype.takeDamage = function() {
+  return `${this.name} took damage`;
+};
+
+/* CharacterStats
+* should inherit destroy() from GameObject's prototype
+*/
+
+function Humanoid(object) {
+  this.name = object.name;
+  this.team = object.team;
+  this.weapons = object.weapons;
+  this.language = object.language;
+}; 
+
+/* Humanoid
+* should inherit destroy() from GameObject through CharacterStats
+* should inherit takeDamage() from CharacterStats
+*/
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 /*
   === GameObject ===
   * createdAt
